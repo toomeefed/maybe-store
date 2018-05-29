@@ -1,6 +1,6 @@
 {
   "name": "@toomee/maybe-store",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a simple K/V storage module for nodejs",
   "main": "index.js",
   "scripts": {

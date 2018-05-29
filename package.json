@@ -1,0 +1,31 @@
+{
+  "name": "@toomee/maybe-store",
+  "version": "1.0.0",
+  "description": "a simple K/V storage module for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava",
+    "test-cov": "nyc --reporter=html --reporter=text ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toomeefed/maybe-store.git"
+  },
+  "keywords": [],
+  "author": "楼教主 <fe.52cik@gmail.com> (http://www.52cik.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toomeefed/maybe-store/issues"
+  },
+  "homepage": "https://github.com/toomeefed/maybe-store#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "coveralls": "^3.0.1",
+    "delay": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "nyc": "^11.8.0"
+  }
+}

@@ -95,3 +95,21 @@ test('MaybeStore#get undefined', async (t) => {
   const mStore = new MaybeStore();
   t.is(await mStore.get('foo'), undefined);
 });
+
+test('MaybeStore with buffer', async (t) => {
+  const mStore = new MaybeStore();
+  await mStore.set('foo', Buffer.from('bar'));
+  const buf = await mStore.get('foo');
+  t.true(Buffer.isBuffer(buf));
+  t.is(buf.toString(), 'bar');
+});
+
+test('MaybeStore throw Error', async (t) => {
+  const mStore = new MaybeStore({
+    serialize() {
+      throw Error('serialize error');
+    },
+  });
+  const error = await t.throws(mStore.set('foo', 'bar'));
+  t.is(error.message, 'serialize error');
+});

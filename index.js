@@ -1,7 +1,12 @@
 const defaultOption = {
   prefix: 'ms',
   serialize: JSON.stringify,
-  deserialize: JSON.parse,
+  deserialize: str => JSON.parse(str, (key, value) => {
+    if (value && value.type === 'Buffer') {
+      return Buffer.from(value.data);
+    }
+    return value;
+  }),
 };
 
 function pTry(cb) {

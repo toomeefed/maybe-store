@@ -1,6 +1,6 @@
 {
   "name": "@toomee/maybe-store",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple K/V storage module for nodejs",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/toomeefed/maybe-store.git"
   },
-  "keywords": [],
+  "keywords": [
+    "storage"
+  ],
   "author": "楼教主 <fe.52cik@gmail.com> (http://www.52cik.com/)",
   "license": "MIT",
   "bugs": {
@@ -27,5 +29,8 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
     "nyc": "^11.8.0"
-  }
+  },
+  "engines": {
+		"node": ">=6.0.0"
+	}
 }

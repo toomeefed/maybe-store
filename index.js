@@ -1,5 +1,3 @@
-const EventEmitter = require('events');
-
 const defaultOption = {
   prefix: 'ms',
   serialize: JSON.stringify,
@@ -12,9 +10,8 @@ function pTry(cb) {
   });
 }
 
-class MaybeStore extends EventEmitter {
+class MaybeStore {
   constructor(opts = {}) {
-    super();
     this.opts = Object.assign({}, defaultOption, opts);
 
     if (!this.opts.store) {

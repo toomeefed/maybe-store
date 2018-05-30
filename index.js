@@ -9,11 +9,7 @@ const defaultOption = {
   }),
 };
 
-function pTry(cb) {
-  return new Promise((resolve) => {
-    resolve(cb());
-  });
-}
+const pTry = cb => new Promise(resolve => resolve(cb()));
 
 class MaybeStore {
   constructor(opts = {}) {

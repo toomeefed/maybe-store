@@ -1,3 +1,10 @@
+interface MapLike<K, V> {
+  get(key: K): Promise<any>;
+  set(key: K, value: V): Promise<boolean>;
+  delete(key: K): Promise<boolean>;
+  clear(): Promise<void>;
+}
+
 interface iOptions {
   /** Namespace for the current instance. */
   prefix?: string;
@@ -6,7 +13,7 @@ interface iOptions {
   /** A custom deserialization function. */
   deserialize?: (data: string) => any;
   /** The storage adapter instance to be used by MaybeStore. */
-  store?: any;
+  store?: MapLike<string, any>;
   /** Default TTL. Can be overridden by specififying a TTL on `.set()`. */
   ttl?: number;
 }

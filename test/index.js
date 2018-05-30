@@ -113,3 +113,14 @@ test('MaybeStore throw Error', async (t) => {
   const error = await t.throws(mStore.set('foo', 'bar'));
   t.is(error.message, 'serialize error');
 });
+
+test('MaybeStore throw Error store.set', async (t) => {
+  const store = {
+    set() {
+      throw Error('store.set error');
+    },
+  };
+  const mStore = new MaybeStore({ store });
+  const error = await t.throws(mStore.set('foo', 'bar'));
+  t.is(error.message, 'store.set error');
+});

@@ -1,19 +1,22 @@
 const defaultOption = {
-  prefix: 'ms',
+  prefix: 'maybe-store',
   serialize: JSON.stringify,
-  deserialize: str => JSON.parse(str, (key, value) => {
-    if (value && value.type === 'Buffer') {
-      return Buffer.from(value.data);
-    }
-    return value;
-  }),
+  deserialize: str =>
+    JSON.parse(str, (key, value) => {
+      if (value && value.type === 'Buffer') {
+        return Buffer.from(value.data);
+      }
+      return value;
+    }),
 };
 
 const pTry = cb => new Promise(resolve => resolve(cb()));
 
 class MaybeStore {
   constructor(opts = {}) {
-    this.opts = Object.assign({}, defaultOption, opts);
+    this.opts = Object.assign({}, defaultOption, opts, {
+      prefix: opts.namespace || defaultOption.prefix,
+    });
 
     if (!this.opts.store) {
       this.opts.store = new Map();

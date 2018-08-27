@@ -14,9 +14,8 @@ const pTry = cb => new Promise(resolve => resolve(cb()));
 
 class MaybeStore {
   constructor(opts = {}) {
-    this.opts = Object.assign({}, defaultOption, opts, {
-      prefix: opts.namespace || defaultOption.prefix,
-    });
+    const prefix = opts.prefix || (opts.store || {}).namespace || defaultOption.prefix;
+    this.opts = Object.assign({}, defaultOption, opts, { prefix });
 
     if (!this.opts.store) {
       this.opts.store = new Map();
